@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -24,6 +26,11 @@ public class Company {
 
     @Column(name = "located_country")
     private String locatedCountry;
+
+
+    @Column(name = "created")
+    @CreatedDate
+    private LocalDateTime created;
 
     //Связь с таблицой Course
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

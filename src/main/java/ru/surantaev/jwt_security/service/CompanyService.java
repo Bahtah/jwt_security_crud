@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.surantaev.jwt_security.entity.models.Company;
 import ru.surantaev.jwt_security.repo.CompanyRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,10 +26,12 @@ public class CompanyService {
     }
 
     public Company saveCompany(Company company) {
+        company.setCreated(LocalDateTime.now());
         return companyRepository.save(company);
     }
 
     public Company updateCompany(Company company) {
+        company.setCreated(LocalDateTime.now());
         return companyRepository.save(company);
     }
 

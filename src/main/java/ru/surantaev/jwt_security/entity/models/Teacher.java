@@ -1,5 +1,6 @@
 package ru.surantaev.jwt_security.entity.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Teacher {
     private String email;
 
     //Связь с таблицой Course
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToOne
     @JoinColumn(name = "course_id", referencedColumnName = "id")
     private Course course;
